@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DOLOXE India — Training Programme 2025</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0b0f1a;
+  --paper: #f5f0e8;
+  --gold: #c8973a;
+  --gold-light: #e8c47a;
+  --teal: #1a5c5c;
+  --teal-light: #2a8080;
+  --mist: #e8e2d6;
+  --smoke: #c4bfb3;
+  --white: #faf8f4;
+  --alert: #8b2020;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 0; opacity: 0.35;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.5; } }
+
+.fade-up { animation: fadeUp 0.6s ease both; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.22s; }
+.delay-3 { animation-delay: 0.34s; }
+
+/* ── HEADER ── */
+.site-header { background: var(--ink); color: var(--paper); position: relative; overflow: hidden; }
+.header-stripe { height: 3px; background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 50%, var(--teal-light) 100%); }
+.header-inner {
+  max-width: 1100px; margin: 0 auto; padding: 3.5rem 2rem 0;
+  display: grid; grid-template-columns: 1fr auto; align-items: start; gap: 2rem;
+}
+.company-name {
+  font-family: 'DM Mono', monospace; font-size: 1rem; font-weight: 500;
+  letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.25rem;
+}
+.company-sub {
+  font-family: 'DM Sans', sans-serif; font-size: 0.75rem;
+  letter-spacing: 0.15em; color: var(--smoke); text-transform: uppercase;
+}
+.seats-badge { display: inline-block; border: 1px solid var(--gold); padding: 0.6rem 1.2rem; border-radius: 2px; text-align: right; }
+.seats-badge .num {
+  font-family: 'Cormorant Garamond', serif; font-size: 2.5rem;
+  font-weight: 700; color: var(--gold); line-height: 1; display: block;
+}
+.seats-badge .label {
+  font-family: 'DM Mono', monospace; font-size: 0.62rem;
+  letter-spacing: 0.2em; color: var(--smoke); text-transform: uppercase;
+}
+.hero-text { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem 4rem; }
+.program-tag {
+  font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.25em;
+  color: var(--teal-light); text-transform: uppercase; margin-bottom: 1.2rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.program-tag::before { content: ''; width: 28px; height: 1px; background: var(--teal-light); }
+.hero-h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 700;
+  line-height: 1.1; color: var(--white); margin-bottom: 1.5rem;
+}
+.hero-h1 em { font-style: italic; color: var(--gold-light); }
+.hero-desc { font-size: 1rem; color: var(--smoke); max-width: 560px; line-height: 1.7; font-weight: 300; }
+
+/* ── STATS BAR ── */
+.stats-bar { background: var(--teal); }
+.stats-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); }
+.stat { padding: 1.4rem 2rem; border-right: 1px solid rgba(255,255,255,0.15); }
+.stat:last-child { border-right: none; }
+.stat-label {
+  font-family: 'DM Mono', monospace; font-size: 0.62rem;
+  letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 0.4rem;
+}
+.stat-value { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: #fff; line-height: 1; }
+.stat-value span { font-size: 0.85rem; font-family: 'DM Sans', sans-serif; font-weight: 400; color: rgba(255,255,255,0.7); margin-left: 0.2rem; }
+
+/* ── MAIN ── */
+.main-wrap {
+  max-width: 1100px; margin: 0 auto; padding: 4rem 2rem;
+  display: grid; grid-template-columns: 1fr 420px; gap: 4rem; align-items: start;
+}
+.section-label {
+  font-family: 'DM Mono', monospace; font-size: 0.65rem;
+  letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
+}
+.section-h2 {
+  font-family: 'Cormorant Garamond', serif; font-size: 2rem;
+  font-weight: 600; color: var(--ink); margin-bottom: 1.5rem; line-height: 1.2;
+}
+.intro-text { font-size: 0.95rem; line-height: 1.8; color: #3a3630; margin-bottom: 2.5rem; font-weight: 300; }
+
+/* PILLS */
+.eligibility-block { margin-bottom: 2.5rem; }
+.eli-title {
+  font-family: 'DM Mono', monospace; font-size: 0.65rem;
+  letter-spacing: 0.25em; text-transform: uppercase; color: var(--smoke); margin-bottom: 1rem;
+}
+.degree-pills { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.pill {
+  display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.1rem;
+  border: 1.5px solid var(--teal); border-radius: 2px;
+  font-family: 'DM Mono', monospace; font-size: 0.8rem; color: var(--teal); font-weight: 500; letter-spacing: 0.05em;
+}
+.pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
+
+/* MODULES */
+.modules-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+  background: var(--mist); border: 1px solid var(--mist); margin-bottom: 2.5rem;
+}
+.module-card { background: var(--white); padding: 1.2rem 1.4rem; transition: background 0.2s; }
+.module-card:hover { background: #f0ece2; }
+.module-num { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 0.4rem; }
+.module-title { font-size: 0.88rem; font-weight: 600; color: var(--ink); margin-bottom: 0.3rem; }
+.module-desc { font-size: 0.77rem; color: #6b6560; line-height: 1.5; font-weight: 300; }
+
+/* TIMELINE */
+.timeline { margin-bottom: 2rem; }
+.tl-item { display: grid; grid-template-columns: 110px 1fr; gap: 1rem; margin-bottom: 1.2rem; align-items: start; }
+.tl-date { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--gold); padding-top: 0.15rem; letter-spacing: 0.05em; }
+.tl-event { font-size: 0.88rem; color: var(--ink); font-weight: 500; border-left: 2px solid var(--mist); padding-left: 1rem; }
+.tl-event small { display: block; font-size: 0.75rem; font-weight: 300; color: #6b6560; margin-top: 0.2rem; }
+
+/* FEE NOTICE */
+.fee-notice {
+  background: var(--ink); color: var(--white);
+  padding: 1.5rem 1.8rem; border-left: 3px solid var(--gold); margin-bottom: 2rem;
+}
+.fee-label {
+  font-family: 'DM Mono', monospace; font-size: 0.62rem;
+  letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem;
+}
+.fee-amount {
+  font-family: 'Cormorant Garamond', serif; font-size: 2.2rem;
+  font-weight: 700; color: var(--white); line-height: 1; margin-bottom: 0.5rem;
+}
+.fee-note { font-size: 0.8rem; color: var(--smoke); font-weight: 300; line-height: 1.5; }
+
+/* ── FORM CARD ── */
+.form-card {
+  background: var(--white); border: 1px solid var(--mist);
+  padding: 2.5rem 2rem; position: sticky; top: 2rem;
+}
+.form-title {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.6rem;
+  font-weight: 600; color: var(--ink); margin-bottom: 0.4rem;
+}
+.form-sub { font-size: 0.78rem; color: #6b6560; font-weight: 300; margin-bottom: 2rem; }
+.form-group { margin-bottom: 1.3rem; }
+.form-label {
+  display: block; font-family: 'DM Mono', monospace; font-size: 0.62rem;
+  letter-spacing: 0.2em; text-transform: uppercase; color: #6b6560; margin-bottom: 0.5rem;
+}
+.req { color: var(--gold); margin-left: 0.2rem; }
+.form-input, .form-select, .form-textarea {
+  width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--mist);
+  background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem; font-weight: 400; border-radius: 2px; outline: none;
+  transition: border-color 0.2s, background 0.2s; appearance: none; -webkit-appearance: none;
+}
+.form-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23888'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 1rem center;
+  padding-right: 2.5rem; cursor: pointer;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--teal); background: #fff; }
+.form-textarea { resize: vertical; min-height: 80px; }
+.row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.checkbox-group { display: flex; align-items: flex-start; gap: 0.75rem; margin-top: 0.3rem; }
+.checkbox-group input[type="checkbox"] {
+  width: 16px; height: 16px; min-width: 16px;
+  margin-top: 0.1rem; accent-color: var(--teal); cursor: pointer;
+}
+.checkbox-group span { font-size: 0.78rem; color: #6b6560; line-height: 1.5; font-weight: 300; }
+
+/* CONFIG BANNER */
+.config-banner {
+  background: #fff7e6; border: 1px solid var(--gold);
+  border-left: 3px solid var(--gold); padding: 1rem 1.2rem; margin-bottom: 1.5rem; border-radius: 2px;
+}
+.config-banner-title {
+  font-family: 'DM Mono', monospace; font-size: 0.62rem;
+  letter-spacing: 0.18em; text-transform: uppercase; color: #a07020; margin-bottom: 0.5rem;
+}
+.config-banner-body { font-size: 0.78rem; color: #6b4c10; line-height: 1.7; }
+.config-banner-body code {
+  background: #fde9bb; padding: 0.1rem 0.35rem; border-radius: 2px;
+  font-family: 'DM Mono', monospace; font-size: 0.7rem; color: #6b3a00;
+}
+.config-banner-steps { margin: 0.75rem 0 0 0; padding-left: 1.2rem; }
+.config-banner-steps li { font-size: 0.77rem; color: #6b4c10; line-height: 1.8; }
+
+/* SUBMIT BUTTON */
+.submit-btn {
+  width: 100%; padding: 1rem; background: var(--ink); color: var(--white);
+  border: none; border-radius: 2px; font-family: 'DM Mono', monospace; font-size: 0.78rem;
+  letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer;
+  transition: background 0.25s, transform 0.15s; margin-top: 1.5rem;
+  display: flex; align-items: center; justify-content: center; gap: 0.7rem;
+  position: relative; overflow: hidden;
+}
+.submit-btn:hover:not(:disabled) { background: var(--teal); }
+.submit-btn:active:not(:disabled) { transform: scale(0.98); }
+.submit-btn:disabled { opacity: 0.65; cursor: not-allowed; }
+.spinner {
+  width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.35);
+  border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite; flex-shrink: 0;
+}
+
+.error-pill {
+  background: #fff0f0; border: 1px solid #e8a0a0; border-left: 3px solid var(--alert);
+  padding: 0.75rem 1rem; border-radius: 2px; margin-top: 0.75rem;
+  font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--alert); letter-spacing: 0.05em;
+}
+.form-note {
+  font-size: 0.72rem; color: #9b9690; text-align: center;
+  margin-top: 1rem; line-height: 1.5; font-weight: 300;
+}
+
+/* SUCCESS STATE */
+.success-state { text-align: center; padding: 3rem 1rem; }
+.success-icon {
+  width: 60px; height: 60px; border: 2px solid var(--teal); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.5rem; font-size: 1.6rem; color: var(--teal);
+  animation: fadeUp 0.5s ease both;
+}
+.success-title {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.9rem;
+  font-weight: 600; color: var(--ink); margin-bottom: 0.75rem;
+}
+.success-msg { font-size: 0.88rem; color: #6b6560; font-weight: 300; line-height: 1.8; }
+.ref-code {
+  font-family: 'DM Mono', monospace; font-size: 0.82rem; background: var(--paper);
+  border: 1px solid var(--mist); padding: 0.6rem 1.2rem; display: inline-block;
+  margin-top: 1.2rem; letter-spacing: 0.18em; color: var(--teal);
+}
+.success-divider { width: 40px; height: 1px; background: var(--mist); margin: 1.5rem auto; }
+.autoreply-note {
+  font-family: 'DM Mono', monospace; font-size: 0.65rem;
+  letter-spacing: 0.12em; color: var(--smoke); text-transform: uppercase;
+}
+
+/* FOOTER */
+footer {
+  background: var(--ink); color: var(--smoke); padding: 2rem;
+  text-align: center; font-size: 0.75rem; font-weight: 300; line-height: 1.8;
+  position: relative; z-index: 1;
+}
+.footer-brand {
+  font-family: 'DM Mono', monospace; color: var(--gold);
+  letter-spacing: 0.2em; font-size: 0.72rem; display: block; margin-bottom: 0.5rem;
+}
+footer a { color: var(--gold); text-decoration: none; }
+
+/* RESPONSIVE */
+@media (max-width: 860px) {
+  .main-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+  .stats-inner { grid-template-columns: repeat(2, 1fr); }
+  .header-inner { grid-template-columns: 1fr; }
+  .seats-badge { text-align: left; }
+  .modules-grid { grid-template-columns: 1fr; }
+  .form-card { position: static; }
+  .hero-h1 { font-size: 2rem; }
+  .row-2 { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .hero-text { padding: 2rem 1.2rem 3rem; }
+  .main-wrap { padding: 2.5rem 1.2rem; }
+  .form-card { padding: 1.8rem 1.2rem; }
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+
+/* ═══════════════════════════════════════════════════════════════
+   ⚙️  EMAILJS CONFIG — replace all four values before deploying
+   ═══════════════════════════════════════════════════════════════
+   1. Sign up free at https://emailjs.com
+   2. Add an Email Service (Gmail / Outlook / SMTP)
+   3. Create TWO templates:
+        • Admin template  → receives full applicant details
+        • Reply template  → sent to the applicant as confirmation
+   4. Paste your IDs + public key below
+   ═══════════════════════════════════════════════════════════════ */
+const EMAILJS_PUBLIC_KEY       = "YOUR_PUBLIC_KEY";        // Account → API Keys
+const EMAILJS_SERVICE_ID       = "YOUR_SERVICE_ID";        // e.g. service_abc123
+const EMAILJS_ADMIN_TEMPLATE   = "YOUR_ADMIN_TEMPLATE_ID"; // template that comes to YOU
+const EMAILJS_REPLY_TEMPLATE   = "YOUR_REPLY_TEMPLATE_ID"; // auto-reply to applicant
+const ADMIN_EMAIL              = "your@email.com";         // where YOU receive applications
+
+const IS_CONFIGURED =
+  EMAILJS_PUBLIC_KEY  !== "YOUR_PUBLIC_KEY"  &&
+  EMAILJS_SERVICE_ID  !== "YOUR_SERVICE_ID"  &&
+  EMAILJS_ADMIN_TEMPLATE !== "YOUR_ADMIN_TEMPLATE_ID";
+
+/* ─── Static data ─── */
+const MODULES = [
+  { num: "01 / WEEK 1–2", title: "Product Orientation & Data Foundations",
+    desc: "Platform onboarding, life sciences data landscape, DOLOXE tooling, and regulatory frameworks." },
+  { num: "02 / WEEK 3–4", title: "Drug Intelligence & Supply Chain Tasks",
+    desc: "Live BioPharmaKSM workflows — drug shortlisting, ANDA analysis, patent cliff mapping." },
+  { num: "03 / WEEK 5–6", title: "GenAI Search & Clinical Accelerators",
+    desc: "Prompt engineering, medical coding deduplication, clinical trial data pipelines." },
+  { num: "04 / WEEK 7–8", title: "Capstone Delivery & Review",
+    desc: "End-to-end task ownership, presentation to leadership, and performance assessment." },
+];
+
+const TIMELINE = [
+  { date: "Now — Apr 10", event: "Applications Open",         sub: "Submit via this portal. Shortlisting is rolling." },
+  { date: "Apr 11–13",    event: "Shortlisting & Interviews", sub: "Top 10 candidates notified by email / phone." },
+  { date: "Apr 14",       event: "Fee Payment Deadline",      sub: "Registration fee of ₹15,000 payable only upon selection." },
+  { date: "Apr 15",       event: "Programme Begins",          sub: "Orientation + first task sprint. Virtual and Hyderabad office." },
+  { date: "Jun 14",       event: "Programme Concludes",       sub: "Capstone review, certificates issued, top performers considered for PPO." },
+];
+
+const STATS = [
+  { label: "Start Date",        value: "Apr 15", sub: "2025" },
+  { label: "Duration",          value: "2",      sub: "months" },
+  { label: "Mode",              value: "Office /", sub: "Virtual", small: true },
+  { label: "Registration Fee*", value: "₹15,000", sub: "if selected" },
+];
+
+const { useState, useCallback } = React;
+
+/* ═══════════════ EMAILJS LOADER ═══════════════ */
+let ejsLoaded = false;
+async function loadEmailJS() {
+  if (ejsLoaded || window.emailjs) { ejsLoaded = true; return; }
+  await new Promise((res, rej) => {
+    const s = document.createElement("script");
+    s.src = "https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js";
+    s.onload = () => { window.emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY }); ejsLoaded = true; res(); };
+    s.onerror = rej;
+    document.head.appendChild(s);
+  });
+}
+
+/* ═══════════════ ROOT APP ═══════════════ */
+function App() {
+  const EMPTY = { name:"", email:"", phone:"", qual:"", grad:"", uni:"", mode:"", why:"", skills:"", terms:false };
+  const [form, setForm]     = useState(EMPTY);
+  const [status, setStatus] = useState("idle"); // idle | loading | success | error
+  const [errMsg, setErrMsg] = useState("");
+  const [refCode, setRef]   = useState("");
+
+  const set = useCallback((key) => (e) =>
+    setForm(f => ({ ...f, [key]: e.target.type === "checkbox" ? e.target.checked : e.target.value })), []);
+
+  const handleSubmit = async () => {
+    const { name, email, phone, qual, grad, uni, mode, why, terms } = form;
+    if (!name || !email || !phone || !qual || !grad || !uni || !mode || !why) {
+      setErrMsg("Please fill in all required fields before submitting."); return;
+    }
+    if (!terms) { setErrMsg("Please acknowledge the registration fee terms to proceed."); return; }
+    setErrMsg("");
+    setStatus("loading");
+
+    const ref = "DLX-25-" + Math.floor(1000 + Math.random() * 9000);
+    setRef(ref);
+
+    const ts = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata",
+      day:"2-digit", month:"short", year:"numeric", hour:"2-digit", minute:"2-digit" });
+
+    const payload = {
+      ref_code:        ref,
+      applicant_name:  form.name,
+      applicant_email: form.email,
+      applicant_phone: form.phone,
+      qualification:   form.qual,
+      graduation_year: form.grad,
+      institution:     form.uni,
+      preferred_mode:  form.mode,
+      motivation:      form.why,
+      skills:          form.skills || "Not provided",
+      submitted_at:    ts,
+    };
+
+    if (!IS_CONFIGURED) {
+      // Demo mode — simulate network delay then show success
+      await new Promise(r => setTimeout(r, 1400));
+      setStatus("success");
+      return;
+    }
+
+    try {
+      await loadEmailJS();
+      // Send admin notification
+      await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_ADMIN_TEMPLATE, {
+        ...payload, to_email: ADMIN_EMAIL,
+      });
+      // Send applicant auto-reply (uses applicant_email as To)
+      if (EMAILJS_REPLY_TEMPLATE !== "YOUR_REPLY_TEMPLATE_ID") {
+        await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_REPLY_TEMPLATE, {
+          ...payload, to_email: form.email, to_name: form.name,
+        });
+      }
+      setStatus("success");
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      setErrMsg("Could not send your application. Please check your EmailJS configuration and try again.");
+      setStatus("idle");
+    }
+  };
+
+  return (
+    <>
+      {/* ── HEADER ── */}
+      <header className="site-header">
+        <div className="header-stripe" />
+        <div className="header-inner">
+          <div className="fade-up">
+            <div className="company-name">DOLOXE</div>
+            <div className="company-sub">India Private Limited &nbsp;·&nbsp; Life Sciences Enterprise Platforms</div>
+          </div>
+          <div className="fade-up delay-1">
+            <div className="seats-badge">
+              <span className="num">10</span>
+              <span className="label">Seats Available</span>
+            </div>
+          </div>
+        </div>
+        <div className="hero-text">
+          <div className="program-tag fade-up delay-1">2025 Cohort &nbsp;·&nbsp; Batch 01</div>
+          <h1 className="hero-h1 fade-up delay-2">
+            Virtual Work<br /><em>Training Programme</em><br />— Real-Time Tasks
+          </h1>
+          <p className="hero-desc fade-up delay-3">
+            A curated two-month intensive for early-career pharma and tech graduates, working directly
+            on live enterprise deliverables across DOLOXE's life sciences product portfolio.
+          </p>
+        </div>
+      </header>
+
+      {/* ── STATS BAR ── */}
+      <div className="stats-bar">
+        <div className="stats-inner">
+          {STATS.map((s, i) => (
+            <div className="stat" key={i}>
+              <div className="stat-label">{s.label}</div>
+              <div className="stat-value" style={s.small ? { fontSize: "1.1rem" } : {}}>
+                {s.value} <span>{s.sub}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ── MAIN CONTENT ── */}
+      <div className="main-wrap">
+
+        {/* LEFT — programme info */}
+        <div>
+          <div className="section-label">About the Programme</div>
+          <h2 className="section-h2">Work on Real Products.<br />Earn Real Experience.</h2>
+          <p className="intro-text">
+            DOLOXE India's Training Programme is not a simulation. Selected candidates will be embedded
+            directly into active project workstreams — BioPharmaKSM, Clinical Accelerators, and Integrated
+            GenAI Search — contributing tangible deliverables under senior mentorship. This is an accelerated
+            entry path for graduates who are ready to work.
+          </p>
+
+          <div className="eligibility-block">
+            <div className="eli-title">Eligible Qualifications</div>
+            <div className="degree-pills">
+              {["B.Pharmacy", "M.Pharmacy", "B.Tech (any branch)"].map(d => (
+                <div className="pill" key={d}><div className="pill-dot" />{d}</div>
+              ))}
+            </div>
+          </div>
+
+          <div className="section-label">Training Modules</div>
+          <div className="modules-grid">
+            {MODULES.map((m, i) => (
+              <div className="module-card" key={i}>
+                <div className="module-num">{m.num}</div>
+                <div className="module-title">{m.title}</div>
+                <div className="module-desc">{m.desc}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="section-label">Key Dates</div>
+          <div className="timeline">
+            {TIMELINE.map((t, i) => (
+              <div className="tl-item" key={i}>
+                <div className="tl-date">{t.date}</div>
+                <div className="tl-event">{t.event}<small>{t.sub}</small></div>
+              </div>
+            ))}
+          </div>
+
+          <div className="fee-notice">
+            <div className="fee-label">* Registration Fee — Payable Only if Selected</div>
+            <div className="fee-amount">₹ 15,000</div>
+            <div className="fee-note">
+              This fee is collected exclusively from shortlisted candidates after the interview round.
+              There is no cost to apply. The fee covers platform access, mentorship resources, and
+              programme administration for the two-month cohort.
+            </div>
+          </div>
+        </div>
+
+        {/* RIGHT — application form */}
+        <div>
+          <div className="form-card">
+            {status === "success" ? (
+              <div className="success-state">
+                <div className="success-icon">✓</div>
+                <div className="success-title">Application Received</div>
+                <p className="success-msg">
+                  Thank you for applying to DOLOXE's 2025 Training Programme.<br /><br />
+                  Our team will review your profile and reach out by{" "}
+                  <strong>April 13, 2025</strong> if you are shortlisted for the next round.
+                </p>
+                <div className="ref-code">REF · {refCode}</div>
+                <div className="success-divider" />
+                <div className="autoreply-note">
+                  {IS_CONFIGURED
+                    ? "A confirmation email has been sent to your inbox."
+                    : "Configure EmailJS to enable email notifications."}
+                </div>
+              </div>
+            ) : (
+              <>
+                <div className="form-title">Apply Now</div>
+                <div className="form-sub">Batch 01 &nbsp;·&nbsp; April 2025 &nbsp;·&nbsp; 10 seats only</div>
+
+                {/* Config warning banner */}
+                {!IS_CONFIGURED && (
+                  <div className="config-banner">
+                    <div className="config-banner-title">⚙ EmailJS Not Configured — Demo Mode</div>
+                    <div className="config-banner-body">
+                      Replace the four constants at the top of the <code>&lt;script&gt;</code> tag:
+                      <code>EMAILJS_PUBLIC_KEY</code>, <code>EMAILJS_SERVICE_ID</code>,{" "}
+                      <code>EMAILJS_ADMIN_TEMPLATE</code>, <code>EMAILJS_REPLY_TEMPLATE</code>,
+                      and <code>ADMIN_EMAIL</code>.
+                      <ol className="config-banner-steps">
+                        <li>Sign up free at <strong>emailjs.com</strong></li>
+                        <li>Connect your Gmail / SMTP service</li>
+                        <li>Create admin + auto-reply templates</li>
+                        <li>Paste IDs into the constants above</li>
+                      </ol>
+                    </div>
+                  </div>
+                )}
+
+                {/* Full Name */}
+                <div className="form-group">
+                  <label className="form-label">Full Name <span className="req">*</span></label>
+                  <input className="form-input" type="text" value={form.name} onChange={set("name")}
+                    placeholder="As per your degree certificate" />
+                </div>
+
+                {/* Email + Phone */}
+                <div className="row-2">
+                  <div className="form-group">
+                    <label className="form-label">Email <span className="req">*</span></label>
+                    <input className="form-input" type="email" value={form.email} onChange={set("email")}
+                      placeholder="you@example.com" />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label">Phone <span className="req">*</span></label>
+                    <input className="form-input" type="tel" value={form.phone} onChange={set("phone")}
+                      placeholder="+91 xxxxxxxxxx" />
+                  </div>
+                </div>
+
+                {/* Qualification + Grad year */}
+                <div className="row-2">
+                  <div className="form-group">
+                    <label className="form-label">Qualification <span className="req">*</span></label>
+                    <select className="form-select" value={form.qual} onChange={set("qual")}>
+                      <option value="">Select degree</option>
+                      <option>B.Pharmacy</option>
+                      <option>M.Pharmacy</option>
+                      <option>B.Tech — CSE / IT</option>
+                      <option>B.Tech — Chemical / Biotech</option>
+                      <option>B.Tech — Other</option>
+                    </select>
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label">Graduation Year <span className="req">*</span></label>
+                    <select className="form-select" value={form.grad} onChange={set("grad")}>
+                      <option value="">Select year</option>
+                      <option>2025 (Final Year)</option>
+                      <option>2024</option>
+                      <option>2023</option>
+                      <option>2022</option>
+                      <option>2021 or earlier</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* University */}
+                <div className="form-group">
+                  <label className="form-label">University / Institution <span className="req">*</span></label>
+                  <input className="form-input" type="text" value={form.uni} onChange={set("uni")}
+                    placeholder="Name of your university or college" />
+                </div>
+
+                {/* Mode */}
+                <div className="form-group">
+                  <label className="form-label">Preferred Mode <span className="req">*</span></label>
+                  <select className="form-select" value={form.mode} onChange={set("mode")}>
+                    <option value="">Select preference</option>
+                    <option>Fully Virtual (Remote)</option>
+                    <option>Office — Hyderabad</option>
+                    <option>Hybrid (Both)</option>
+                  </select>
+                </div>
+
+                {/* Why DOLOXE */}
+                <div className="form-group">
+                  <label className="form-label">Why DOLOXE? <span className="req">*</span></label>
+                  <textarea className="form-textarea" value={form.why} onChange={set("why")}
+                    placeholder="Brief note on your interest and what you bring to the programme (100–200 words)" />
+                </div>
+
+                {/* Skills */}
+                <div className="form-group">
+                  <label className="form-label">Relevant Skills / Tools</label>
+                  <input className="form-input" type="text" value={form.skills} onChange={set("skills")}
+                    placeholder="e.g. Python, SQL, drug regulatory, clinical data…" />
+                </div>
+
+                {/* Terms */}
+                <div className="form-group">
+                  <div className="checkbox-group">
+                    <input type="checkbox" checked={form.terms} onChange={set("terms")} />
+                    <span>
+                      I understand that the ₹15,000 registration fee is payable{" "}
+                      <strong>only if I am shortlisted</strong>, and I agree to DOLOXE's
+                      programme terms and data privacy policy.
+                    </span>
+                  </div>
+                </div>
+
+                {errMsg && <div className="error-pill">⚠ &nbsp;{errMsg}</div>}
+
+                <button className="submit-btn" onClick={handleSubmit} disabled={status === "loading"}>
+                  {status === "loading"
+                    ? <><div className="spinner" />Submitting…</>
+                    : <span>Submit Application →</span>}
+                </button>
+
+                <p className="form-note">
+                  Applications reviewed on a rolling basis.<br />
+                  Only shortlisted candidates will be contacted.
+                </p>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* ── FOOTER ── */}
+      <footer>
+        <span className="footer-brand">DOLOXE INDIA PRIVATE LIMITED</span>
+        Life Sciences Enterprise Platforms &nbsp;·&nbsp; Hyderabad, India &nbsp;·&nbsp; CIN: U72900TG2025PTC000000<br />
+        Contact: <a href="mailto:careers@doloxe.in">careers@doloxe.in</a>
+        &nbsp;·&nbsp; This is an internal training initiative. Limited to 10 participants per cohort.
+      </footer>
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>
